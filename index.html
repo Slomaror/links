@@ -28,24 +28,20 @@
             gap: 16px;
         }
         
-        /* Сетки для симметричных и асимметричных рядов */
-        .grid-2 {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 16px;
-        }
+        /* Гибкие ряды */
         .flex-row {
             display: flex;
             gap: 16px;
             width: 100%;
         }
 
-        /* Базовый стиль для всех кнопок */
+        /* Общий базовый стиль кнопок */
         .btn {
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
+            color: #ffffff;
             text-decoration: none;
             padding: 22px 12px;
             font-size: 16px;
@@ -54,67 +50,77 @@
             border-radius: 0px; /* Строгие прямоугольники по макету */
             transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
         }
-        .btn:active {
-            transform: scale(0.98);
+
+        /* --- СИММЕТРИЧНЫЕ БЛОКИ (Ряды 1 и 2) --- */
+        .w-half { 
+            flex: 1; 
         }
 
-        /* 1. БЛОКИ КАРТ (Фиолетовый стиль) */
-        .btn-maps {
-            background: rgba(147, 51, 234, 0.05);
-            color: #ffffff;
-            border: 2px solid #9333ea;
-            box-shadow: 0 0 10px rgba(147, 51, 234, 0.2);
-        }
-        @media (hover: hover) {
-            .btn-maps:hover {
-                background: #9333ea;
-                box-shadow: 0 0 20px rgba(147, 51, 234, 0.6);
-            }
-        }
-        .btn-maps:active {
-            background: #9333ea;
-        }
-
-        /* 2. БЛОКИ СОЦСЕТЕЙ И МЕССЕНДЖЕРОВ (Классический белый контур) */
-        .btn-social {
-            background: rgba(255, 255, 255, 0.02);
-            color: #ffffff;
-            border: 2px solid rgba(255, 255, 255, 0.8);
-            box-shadow: 0 0 10px rgba(147, 51, 234, 0.1);
-        }
-        @media (hover: hover) {
-            .btn-social:hover {
-                border-color: #ffffff;
-                background: rgba(255, 255, 255, 0.1);
-                box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
-            }
-        }
-        .btn-social:active {
-            background: rgba(255, 255, 255, 0.2);
-        }
-
-        /* Пропорции для нижнего ряда соцсетей (Инстаграм чуть уже, ВК и Вотсап шире) */
+        /* --- АСИММЕТРИЧНЫЙ БЛОК (Ряд 3) --- */
         .w-insta  { flex: 3; }
         .w-vk     { flex: 4; }
         .w-wa     { flex: 4; }
 
-        /* 3. ГЛАВНАЯ КНОПКА ЗВОНКА (Розовый неон во всю ширину) */
-        .btn-call {
-            width: 100%;
-            padding: 26px 10px;
-            background: rgba(244, 63, 94, 0.1);
-            border: 2px solid #f43f5e;
-            color: #ffffff;
-            box-shadow: 0 0 15px rgba(244, 63, 94, 0.4);
+        /* --- ЦВЕТОВОЙ СТИЛЬ: КАРТЫ (Розовый неон) --- */
+        .btn-pink {
+            background: rgba(236, 72, 153, 0.03);
+            border: 2px solid #ec4899;
+            box-shadow: 0 0 10px rgba(236, 72, 153, 0.15);
         }
         @media (hover: hover) {
-            .btn-call:hover {
-                background: #f43f5e;
-                box-shadow: 0 0 25px rgba(244, 63, 94, 0.8);
+            .btn-pink:hover {
+                transform: scale(1.02);
+                background: #ec4899;
+                color: #05020a;
+                box-shadow: 0 0 20px rgba(236, 72, 153, 0.6);
             }
         }
-        .btn-call:active {
-            background: #f43f5e;
+        .btn-pink:active {
+            transform: scale(0.98);
+            background: #ec4899;
+            color: #05020a;
+        }
+
+        /* --- ЦВЕТОВОЙ СТИЛЬ: МЕССЕНДЖЕРЫ (Фиолетовый неон) --- */
+        .btn-purple {
+            background: rgba(147, 51, 234, 0.03);
+            border: 2px solid #9333ea;
+            box-shadow: 0 0 10px rgba(147, 51, 234, 0.15);
+        }
+        @media (hover: hover) {
+            .btn-purple:hover {
+                transform: scale(1.02);
+                background: #9333ea;
+                color: #05020a;
+                box-shadow: 0 0 20px rgba(147, 51, 234, 0.6);
+            }
+        }
+        .btn-purple:active {
+            transform: scale(0.98);
+            background: #9333ea;
+            color: #05020a;
+        }
+
+        /* --- КНОПКА ЗВОНКА (Акцентный градиент во всю ширину) --- */
+        .btn-full {
+            width: 100%;
+            padding: 26px 10px;
+            background: linear-gradient(135deg, rgba(147, 51, 234, 0.2), rgba(244, 63, 94, 0.2));
+            border: 2px solid #f43f5e; /* Насыщенный кораллово-розовый */
+            box-shadow: 0 0 15px rgba(244, 63, 94, 0.3);
+        }
+        @media (hover: hover) {
+            .btn-full:hover {
+                transform: scale(1.01);
+                background: linear-gradient(135deg, #9333ea, #f43f5e);
+                border-color: #ffffff;
+                box-shadow: 0 0 25px rgba(244, 63, 94, 0.7);
+            }
+        }
+        .btn-full:active {
+            transform: scale(0.99);
+            background: linear-gradient(135deg, #9333ea, #f43f5e);
+            border-color: #ffffff;
         }
 
         /* Сноска в подвале */
@@ -127,16 +133,13 @@
             line-height: 1.4;
         }
 
-        /* Адаптивность для мобильных устройств */
+        /* Мобильная адаптация */
         @media (max-width: 400px) {
-            .grid-2, .flex-row {
-                gap: 10px;
-            }
-            .container {
+            .flex-row, .container {
                 gap: 10px;
             }
             .btn {
-                padding: 18px 8px;
+                padding: 18px 6px;
                 font-size: 14px;
             }
         }
@@ -145,27 +148,27 @@
 <body>
 
 <div class="container">
-    <!-- Первый ряд: Карты (Симметрично 50/50, Фиолетовый стиль) -->
-    <div class="grid-2">
-        <a href="https://yandex.ru/maps/org/aura_igr/126847755305/" class="btn btn-maps" target="_blank">ЯндексКарты</a>
-        <a href="https://2gis.ru/moscow/firm/70000001110439484" class="btn btn-maps" target="_blank">2Гис</a>
-    </div>
-
-    <!-- Второй ряд: Telegram и MAX (Симметрично 50/50, Базовый стиль) -->
-    <div class="grid-2">
-        <a href="https://t.me/aura_vr_msk" class="btn btn-social" target="_blank">Telegram</a>
-        <a href="https://max.ru/id772793277929_biz" class="btn btn-social" target="_blank">MAX</a>
-    </div>
-
-    <!-- Третий ряд: Instagram, ВКонтакте, WhatsApp (Асимметрично, Базовый стиль) -->
+    <!-- Первый ряд: Симметричные карты (Розовый стиль) -->
     <div class="flex-row">
-        <a href="https://www.instagram.com/aura_vr_msk?igsh=YXdpcDE2cW5hbnl0&utm_source=qr" class="btn btn-social w-insta" target="_blank">Instagram*</a>
-        <a href="https://vk.com/aura_vr_msk" class="btn btn-social w-vk" target="_blank">ВКонтакте</a>
-        <a href="https://wa.me/79154725800" class="btn btn-social w-wa" target="_blank">WhatsApp</a>
+        <a href="https://yandex.ru/maps/org/aura_igr/126847755305/" class="btn btn-pink w-half" target="_blank">ЯндексКарты</a>
+        <a href="https://2gis.ru/moscow/firm/70000001110439484" class="btn btn-pink w-half" target="_blank">2Гис</a>
     </div>
 
-    <!-- Четвертый ряд: Главная кнопка звонка (Розовый стиль) -->
-    <a href="tel:+74996424215" class="btn btn-call">Позвонить нам</a>
+    <!-- Второй ряд: Симметричные ТГ и Макс (Фиолетовый стиль) -->
+    <div class="flex-row">
+        <a href="https://t.me/aura_vr_msk" class="btn btn-purple w-half" target="_blank">Telegram</a>
+        <a href="https://max.ru/id772793277929_biz" class="btn btn-purple w-half" target="_blank">MAX</a>
+    </div>
+
+    <!-- Третий ряд: Соцсети (Фиолетовый стиль, асимметрия по макету) -->
+    <div class="flex-row">
+        <a href="https://www.instagram.com/aura_vr_msk?igsh=YXdpcDE2cW5hbnl0&utm_source=qr" class="btn btn-purple w-insta" target="_blank">Instagram*</a>
+        <a href="https://vk.com/aura_vr_msk" class="btn btn-purple w-vk" target="_blank">ВКонтакте</a>
+        <a href="https://wa.me/79154725800" class="btn btn-purple w-wa" target="_blank">WhatsApp</a>
+    </div>
+
+    <!-- Четвертый ряд: Позвонить нам -->
+    <a href="tel:+74996424215" class="btn btn-full">Позвонить нам</a>
 
     <!-- Юридический текст под кнопками -->
     <div class="footer-text">
