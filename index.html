@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Аура Игр | Контакты</title>
+    <title>Аура Игр | Contacts</title>
     <!-- Подключаем библиотеку иконок Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
@@ -18,22 +18,23 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            padding: 20px;
+            padding: 16px;
             margin: 0;
             min-height: 100vh;
+            overflow-x: hidden; /* Защита от случайного бокового скролла */
         }
         .container {
             width: 100%;
             max-width: 500px;
             display: flex;
             flex-direction: column;
-            gap: 16px;
+            gap: 14px;
         }
         
         /* Гибкие ряды */
         .flex-row {
             display: flex;
-            gap: 16px;
+            gap: 14px;
             width: 100%;
         }
 
@@ -45,8 +46,8 @@
             text-align: center;
             color: #ffffff;
             text-decoration: none;
-            padding: 22px 12px;
-            font-size: 16px;
+            padding: 20px 8px;
+            font-size: 15px;
             font-weight: 600;
             letter-spacing: 0.3px;
             border-radius: 0px;
@@ -54,17 +55,22 @@
             border-style: solid;
             transition: all 0.2s ease-in-out;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            min-width: 0; /* Позволяет флекс-элементам сжиматься меньше их содержимого */
+            word-break: break-word; /* Перенос слов, если они не влезают */
         }
 
         /* Стилизация иконок внутри кнопок */
         .btn i {
-            margin-right: 8px;
-            font-size: 18px;
+            margin-right: 6px;
+            font-size: 16px;
+            flex-shrink: 0; /* Иконка не будет сжиматься в кашу */
             transition: transform 0.2s ease;
         }
         
-        .btn:hover i {
-            transform: scale(1.15);
+        @media (hover: hover) {
+            .btn:hover i {
+                transform: scale(1.15);
+            }
         }
 
         /* Симметричные блоки (Ряды 1 и 2) */
@@ -94,7 +100,6 @@
         .btn-pink:active {
             background: #ec4899;
             color: #0d0617;
-            transform: translateY(1px);
         }
 
         /* --- МЕССЕНДЖЕРЫ: Глубокий, сочный фиолетовый --- */
@@ -114,13 +119,12 @@
         .btn-purple:active {
             background: #8b5cf6;
             color: #0d0617;
-            transform: translateY(1px);
         }
 
         /* --- ЗВОНОК: Розово-фиолетовый акцентный градиент --- */
         .btn-full {
             width: 100%;
-            padding: 26px 10px;
+            padding: 24px 10px;
             background: linear-gradient(135deg, rgba(139, 92, 246, 0.2), rgba(236, 72, 153, 0.2));
             border-color: #f43f5e;
         }
@@ -137,7 +141,6 @@
             background: linear-gradient(135deg, #8b5cf6, #ec4899);
             border-color: #ffffff;
             color: #0d0617;
-            transform: translateY(1px);
         }
 
         /* Сноска в подвале */
@@ -150,18 +153,24 @@
             line-height: 1.4;
         }
 
-        /* Мобильная адаптация */
-        @media (max-width: 400px) {
-            .flex-row, .container {
-                gap: 10px;
+        /* Умная мобильная адаптация для узких экранов */
+        @media (max-width: 430px) {
+            .flex-row {
+                gap: 8px;
+            }
+            .container {
+                gap: 8px;
             }
             .btn {
-                padding: 18px 6px;
-                font-size: 14px;
+                padding: 16px 4px;
+                font-size: 13px;
+                /* Меняем направление на вертикальное, чтобы иконка встала над текстом, если совсем мало места */
+                flex-direction: column; 
+                gap: 4px;
             }
             .btn i {
-                margin-right: 5px;
-                font-size: 15px;
+                margin-right: 0; /* Убираем правый отступ, так как иконка теперь сверху */
+                font-size: 14px;
             }
         }
     </style>
@@ -169,7 +178,7 @@
 <body>
 
 <div class="container">
-    <!-- Первый ряд: Симметричные карты (Розовый стиль) -->
+    <!-- Первый ряд: Симметричные карты -->
     <div class="flex-row">
         <a href="https://yandex.ru/maps/org/aura_igr/126847755305/" class="btn btn-pink w-half" target="_blank">
             <i class="fa-solid fa-map-location-dot"></i>ЯндексКарты
@@ -179,7 +188,7 @@
         </a>
     </div>
 
-    <!-- Второй ряд: Симметричные ТГ и Макс (Фиолетовый стиль) -->
+    <!-- Второй ряд: Симметричные ТГ и Макс -->
     <div class="flex-row">
         <a href="https://t.me/aura_vr_msk" class="btn btn-purple w-half" target="_blank">
             <i class="fa-brands fa-telegram"></i>Telegram
@@ -189,7 +198,7 @@
         </a>
     </div>
 
-    <!-- Третий ряд: Соцсети (Фиолетовый стиль, асимметрия по макету) -->
+    <!-- Третий ряд: Соцсети (Сбалансированная асимметрия с защитой от вылезания) -->
     <div class="flex-row">
         <a href="https://www.instagram.com/aura_vr_msk?igsh=YXdpcDE2cW5hbnl0&utm_source=qr" class="btn btn-purple w-insta" target="_blank">
             <i class="fa-brands fa-instagram"></i>Instagram*
