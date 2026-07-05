@@ -10,9 +10,9 @@
         }
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
-            /* Более мягкий, приглушенный темный фон */
-            background: radial-gradient(circle at center, #0b0612 0%, #040207 100%);
-            color: #e2e8f0;
+            /* Мягкий темный фон, чтобы цвета 'заиграли' */
+            background: #0d0617;
+            color: #ffffff;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -36,20 +36,23 @@
             width: 100%;
         }
 
-        /* Общий стиль кнопок — рамки стали тоньше (1px) и прозрачнее */
+        /* Общий стиль кнопок — рамки снова четкие (2px) */
         .btn {
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            color: rgba(255, 255, 255, 0.85);
+            color: #ffffff;
             text-decoration: none;
             padding: 22px 12px;
             font-size: 16px;
-            font-weight: 500;
+            font-weight: 600;
             letter-spacing: 0.3px;
             border-radius: 0px;
+            border-width: 2px;
+            border-style: solid;
             transition: all 0.2s ease-in-out;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
         }
 
         /* Симметричные блоки (Ряды 1 и 2) */
@@ -62,59 +65,67 @@
         .w-vk     { flex: 4; }
         .w-wa     { flex: 4; }
 
-        /* --- КАРТЫ: Приглушенный матовый розовый --- */
+        /* --- КАРТЫ: Яркий, насыщенный розовый --- */
         .btn-pink {
-            background: rgba(244, 114, 182, 0.04);
-            border: 1px solid rgba(244, 114, 182, 0.4);
-            box-shadow: 0 0 8px rgba(244, 114, 182, 0.05);
+            background: rgba(236, 72, 153, 0.1);
+            border-color: #ec4899; /* Насыщенный розовый */
         }
         @media (hover: hover) {
             .btn-pink:hover {
-                background: rgba(244, 114, 182, 0.15);
-                border-color: rgba(244, 114, 182, 0.8);
-                color: #ffffff;
-                box-shadow: 0 0 12px rgba(244, 114, 182, 0.2);
+                background: #ec4899;
+                color: #0d0617;
+                border-color: #ffffff;
+                box-shadow: 0 6px 20px rgba(236, 72, 153, 0.5);
+                transform: translateY(-2px);
             }
         }
         .btn-pink:active {
-            background: rgba(244, 114, 182, 0.25);
+            background: #ec4899;
+            color: #0d0617;
+            transform: translateY(1px);
         }
 
-        /* --- МЕССЕНДЖЕРЫ: Спокойный лавандово-фиолетовый --- */
+        /* --- МЕССЕНДЖЕРЫ: Глубокий, сочный фиолетовый --- */
         .btn-purple {
-            background: rgba(168, 85, 247, 0.04);
-            border: 1px solid rgba(168, 85, 247, 0.4);
-            box-shadow: 0 0 8px rgba(168, 85, 247, 0.05);
+            background: rgba(139, 92, 246, 0.1);
+            border-color: #8b5cf6; /* Глубокий фиолетовый */
         }
         @media (hover: hover) {
             .btn-purple:hover {
-                background: rgba(168, 85, 247, 0.15);
-                border-color: rgba(168, 85, 247, 0.8);
-                color: #ffffff;
-                box-shadow: 0 0 12px rgba(168, 85, 247, 0.2);
+                background: #8b5cf6;
+                color: #0d0617;
+                border-color: #ffffff;
+                box-shadow: 0 6px 20px rgba(139, 92, 246, 0.5);
+                transform: translateY(-2px);
             }
         }
         .btn-purple:active {
-            background: rgba(168, 85, 247, 0.25);
+            background: #8b5cf6;
+            color: #0d0617;
+            transform: translateY(1px);
         }
 
-        /* --- ЗВОНОК: Сдержанный градиент без агрессивного свечения --- */
+        /* --- ЗВОНОК: Розово-фиолетовый акцентный градиент --- */
         .btn-full {
             width: 100%;
             padding: 26px 10px;
-            background: linear-gradient(135deg, rgba(168, 85, 247, 0.1), rgba(244, 114, 182, 0.1));
-            border: 1px solid rgba(244, 114, 182, 0.6);
-            box-shadow: 0 0 10px rgba(244, 114, 182, 0.1);
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.2), rgba(236, 72, 153, 0.2));
+            border-color: #f43f5e; /* Кораллово-розовый контур */
         }
         @media (hover: hover) {
             .btn-full:hover {
-                background: linear-gradient(135deg, rgba(168, 85, 247, 0.25), rgba(244, 114, 182, 0.25));
-                border-color: rgba(255, 255, 255, 0.8);
-                box-shadow: 0 0 15px rgba(244, 114, 182, 0.3);
+                background: linear-gradient(135deg, #8b5cf6, #ec4899);
+                border-color: #ffffff;
+                color: #0d0617;
+                box-shadow: 0 8px 25px rgba(244, 63, 94, 0.6);
+                transform: translateY(-3px);
             }
         }
         .btn-full:active {
-            background: linear-gradient(135deg, rgba(168, 85, 247, 0.35), rgba(244, 114, 182, 0.35));
+            background: linear-gradient(135deg, #8b5cf6, #ec4899);
+            border-color: #ffffff;
+            color: #0d0617;
+            transform: translateY(1px);
         }
 
         /* Сноска в подвале */
@@ -123,7 +134,7 @@
             font-style: italic;
             text-align: center;
             margin-top: 12px;
-            color: rgba(255, 255, 255, 0.35);
+            color: rgba(255, 255, 255, 0.5);
             line-height: 1.4;
         }
 
@@ -142,19 +153,19 @@
 <body>
 
 <div class="container">
-    <!-- Первый ряд: Симметричные карты (Приглушенный розовый) -->
+    <!-- Первый ряд: Симметричные карты (Насыщенный розовый) -->
     <div class="flex-row">
         <a href="https://yandex.ru/maps/org/aura_igr/126847755305/" class="btn btn-pink w-half" target="_blank">ЯндексКарты</a>
         <a href="https://2gis.ru/moscow/firm/70000001110439484" class="btn btn-pink w-half" target="_blank">2Гис</a>
     </div>
 
-    <!-- Второй ряд: Симметричные ТГ и Макс (Приглушенный фиолетовый) -->
+    <!-- Второй ряд: Симметричные ТГ и Макс (Насыщенный фиолетовый) -->
     <div class="flex-row">
         <a href="https://t.me/aura_vr_msk" class="btn btn-purple w-half" target="_blank">Telegram</a>
         <a href="https://max.ru/id772793277929_biz" class="btn btn-purple w-half" target="_blank">MAX</a>
     </div>
 
-    <!-- Третий ряд: Соцсети (Приглушенный фиолетовый, асимметрия сохранена) -->
+    <!-- Третий ряд: Соцсети (Насыщенный фиолетовый, асимметрия сохранена) -->
     <div class="flex-row">
         <a href="https://www.instagram.com/aura_vr_msk?igsh=YXdpcDE2cW5hbnl0&utm_source=qr" class="btn btn-purple w-insta" target="_blank">Instagram*</a>
         <a href="https://vk.com/aura_vr_msk" class="btn btn-purple w-vk" target="_blank">ВКонтакте</a>
