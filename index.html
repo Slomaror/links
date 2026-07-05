@@ -4,13 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Аура Игр | Контакты</title>
+    <!-- Подключаем библиотеку иконок Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         *, *::before, *::after {
             box-sizing: border-box;
         }
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
-            /* Мягкий темный фон, чтобы цвета 'заиграли' */
             background: #0d0617;
             color: #ffffff;
             display: flex;
@@ -36,7 +37,7 @@
             width: 100%;
         }
 
-        /* Общий стиль кнопок — рамки снова четкие (2px) */
+        /* Общий стиль кнопок */
         .btn {
             display: flex;
             align-items: center;
@@ -55,6 +56,17 @@
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
         }
 
+        /* Стилизация иконок внутри кнопок */
+        .btn i {
+            margin-right: 8px;
+            font-size: 18px;
+            transition: transform 0.2s ease;
+        }
+        
+        .btn:hover i {
+            transform: scale(1.15);
+        }
+
         /* Симметричные блоки (Ряды 1 и 2) */
         .w-half { 
             flex: 1; 
@@ -68,7 +80,7 @@
         /* --- КАРТЫ: Яркий, насыщенный розовый --- */
         .btn-pink {
             background: rgba(236, 72, 153, 0.1);
-            border-color: #ec4899; /* Насыщенный розовый */
+            border-color: #ec4899;
         }
         @media (hover: hover) {
             .btn-pink:hover {
@@ -88,7 +100,7 @@
         /* --- МЕССЕНДЖЕРЫ: Глубокий, сочный фиолетовый --- */
         .btn-purple {
             background: rgba(139, 92, 246, 0.1);
-            border-color: #8b5cf6; /* Глубокий фиолетовый */
+            border-color: #8b5cf6;
         }
         @media (hover: hover) {
             .btn-purple:hover {
@@ -110,7 +122,7 @@
             width: 100%;
             padding: 26px 10px;
             background: linear-gradient(135deg, rgba(139, 92, 246, 0.2), rgba(236, 72, 153, 0.2));
-            border-color: #f43f5e; /* Кораллово-розовый контур */
+            border-color: #f43f5e;
         }
         @media (hover: hover) {
             .btn-full:hover {
@@ -147,33 +159,53 @@
                 padding: 18px 6px;
                 font-size: 14px;
             }
+            .btn i {
+                margin-right: 5px;
+                font-size: 15px;
+            }
         }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <!-- Первый ряд: Симметричные карты (Насыщенный розовый) -->
+    <!-- Первый ряд: Симметричные карты (Розовый стиль) -->
     <div class="flex-row">
-        <a href="https://yandex.ru/maps/org/aura_igr/126847755305/" class="btn btn-pink w-half" target="_blank">ЯндексКарты</a>
-        <a href="https://2gis.ru/moscow/firm/70000001110439484" class="btn btn-pink w-half" target="_blank">2Гис</a>
+        <a href="https://yandex.ru/maps/org/aura_igr/126847755305/" class="btn btn-pink w-half" target="_blank">
+            <i class="fa-solid fa-map-location-dot"></i>ЯндексКарты
+        </a>
+        <a href="https://2gis.ru/moscow/firm/70000001110439484" class="btn btn-pink w-half" target="_blank">
+            <i class="fa-solid fa-location-pin"></i>2Гис
+        </a>
     </div>
 
-    <!-- Второй ряд: Симметричные ТГ и Макс (Насыщенный фиолетовый) -->
+    <!-- Второй ряд: Симметричные ТГ и Макс (Фиолетовый стиль) -->
     <div class="flex-row">
-        <a href="https://t.me/aura_vr_msk" class="btn btn-purple w-half" target="_blank">Telegram</a>
-        <a href="https://max.ru/id772793277929_biz" class="btn btn-purple w-half" target="_blank">MAX</a>
+        <a href="https://t.me/aura_vr_msk" class="btn btn-purple w-half" target="_blank">
+            <i class="fa-brands fa-telegram"></i>Telegram
+        </a>
+        <a href="https://max.ru/id772793277929_biz" class="btn btn-purple w-half" target="_blank">
+            <i class="fa-solid fa-id-card"></i>MAX
+        </a>
     </div>
 
-    <!-- Третий ряд: Соцсети (Насыщенный фиолетовый, асимметрия сохранена) -->
+    <!-- Третий ряд: Соцсети (Фиолетовый стиль, асимметрия по макету) -->
     <div class="flex-row">
-        <a href="https://www.instagram.com/aura_vr_msk?igsh=YXdpcDE2cW5hbnl0&utm_source=qr" class="btn btn-purple w-insta" target="_blank">Instagram*</a>
-        <a href="https://vk.com/aura_vr_msk" class="btn btn-purple w-vk" target="_blank">ВКонтакте</a>
-        <a href="https://wa.me/79154725800" class="btn btn-purple w-wa" target="_blank">WhatsApp</a>
+        <a href="https://www.instagram.com/aura_vr_msk?igsh=YXdpcDE2cW5hbnl0&utm_source=qr" class="btn btn-purple w-insta" target="_blank">
+            <i class="fa-brands fa-instagram"></i>Instagram*
+        </a>
+        <a href="https://vk.com/aura_vr_msk" class="btn btn-purple w-vk" target="_blank">
+            <i class="fa-brands fa-vk"></i>ВКонтакте
+        </a>
+        <a href="https://wa.me/79154725800" class="btn btn-purple w-wa" target="_blank">
+            <i class="fa-brands fa-whatsapp"></i>WhatsApp
+        </a>
     </div>
 
     <!-- Четвертый ряд: Позвонить нам -->
-    <a href="tel:+74996424215" class="btn btn-full">Позвонить нам</a>
+    <a href="tel:+74996424215" class="btn btn-full">
+        <i class="fa-solid fa-phone"></i>Позвонить нам
+    </a>
 
     <!-- Юридический текст под кнопками -->
     <div class="footer-text">
