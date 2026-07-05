@@ -59,11 +59,10 @@
             word-break: break-word;
         }
 
-        /* Универсальные стили для всех типов иконок (шрифтовых и картинок) */
-        .btn i, .btn img {
+        /* Универсальные стили для всех типов иконок (шрифтовых и встроенных SVG) */
+        .btn i, .btn svg {
             width: 20px;
             height: 20px;
-            object-fit: contain;
             margin-right: 8px;
             font-size: 16px;
             flex-shrink: 0;
@@ -73,19 +72,22 @@
             transition: transform 0.2s ease;
         }
         
+        /* Для правильного цвета встроенной иконки MAX */
+        .btn svg {
+            fill: currentColor;
+        }
+        
         @media (hover: hover) {
-            .btn:hover i, .btn:hover img {
+            .btn:hover i, .btn:hover svg {
                 transform: scale(1.15);
             }
         }
 
         /* --- СТРОГО ОДИНАКОВЫЕ РАЗМЕРЫ НА КАЖДОЙ СТРОКЕ --- */
-        /* Ряды 1 и 2 делятся ровно пополам (50% / 50%) */
         .w-half { 
             flex: 1 1 50%; 
         }
 
-        /* Ряд 3 делится ровно на три части (33.3% / 33.3% / 33.3%) */
         .w-third { 
             flex: 1 1 33.333%; 
         }
@@ -171,7 +173,7 @@
                 flex-direction: column; 
                 gap: 4px;
             }
-            .btn i, .btn img {
+            .btn i, .btn svg {
                 margin-right: 0;
                 width: 18px;
                 height: 18px;
@@ -199,7 +201,10 @@
             <i class="fa-brands fa-telegram"></i>Telegram
         </a>
         <a href="https://max.ru/id772793277929_biz" class="btn btn-purple w-half" target="_blank">
-            <img src="icons/Max_logo.svg" alt="Иконка MAX">MAX
+            <!-- Встроенная векторная иконка MAX, которая загрузится в любом случае -->
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15.5h-2v-2h2v2zm1.07-5.75l-.9.92C12.45 12.9 12 13.5 12 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H7c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.04-.42 1.99-1.07 2.74z"/>
+            </svg>MAX
         </a>
     </div>
 
@@ -227,6 +232,5 @@
     </div>
 </div>
 
-<!-- Очистка кэша и перезапуск сборки сайта -->
 </body>
 </html>
