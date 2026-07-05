@@ -92,28 +92,7 @@
             flex: 1 1 33.333%; 
         }
 
-        /* --- САЙТ: Яркий, насыщенный розовый --- */
-        .btn-pink-full {
-            width: 100%;
-            padding: 24px 10px;
-            background: rgba(236, 72, 153, 0.1);
-            border-color: #ec4899;
-        }
-        @media (hover: hover) {
-            .btn-pink-full:hover {
-                background: #ec4899;
-                color: #0d0617;
-                border-color: #ffffff;
-                box-shadow: 0 8px 25px rgba(236, 72, 153, 0.5);
-                transform: translateY(-3px);
-            }
-        }
-        .btn-pink-full:active {
-            background: #ec4899;
-            color: #0d0617;
-        }
-
-        /* --- МЕССЕНДЖЕРЫ И КАРТЫ: Глубокий, сочный фиолетовый --- */
+        /* --- КАРТЫ И МЕССЕНДЖЕРЫ: Фиолетовый оттенок --- */
         .btn-purple {
             background: rgba(139, 92, 246, 0.1);
             border-color: #8b5cf6;
@@ -132,7 +111,7 @@
             color: #0d0617;
         }
 
-        /* --- ЗВОНОК: Розово-фиолетовый акцентный градиент --- */
+        /* --- САЙТ И ЗВОНОК: Розово-фиолетовый акцентный градиент --- */
         .btn-full {
             width: 100%;
             padding: 24px 10px;
@@ -188,11 +167,11 @@
 
 <div class="container">
     <!-- Верхний ряд: Наш сайт (Симметрично кнопке звонка) -->
-    <a href="https://aura-vr.ru/" class="btn btn-pink-full" target="_blank">
+    <a href="https://aura-vr.ru/" class="btn btn-full" target="_blank">
         <i class="fa-solid fa-globe"></i>Наш сайт
     </a>
 
-    <!-- Второй ряд: Карты (Перекрашены в фиолетовый) -->
+    <!-- Первый ряд: Карты (Перекрашены в фиолетовый) -->
     <div class="flex-row">
         <a href="https://yandex.ru/maps/org/aura_igr/126847755305/" class="btn btn-purple w-half" target="_blank">
             <i class="fa-solid fa-map-location-dot"></i>ЯндексКарты
@@ -202,20 +181,19 @@
         </a>
     </div>
 
-    <!-- Третий ряд: Симметричные ТГ и Макс -->
+    <!-- Второй ряд: Telegram и MAX -->
     <div class="flex-row">
         <a href="https://t.me/aura_vr_msk" class="btn btn-purple w-half" target="_blank">
             <i class="fa-brands fa-telegram"></i>Telegram
         </a>
         <a href="https://max.ru/id772793277929_biz" class="btn btn-purple w-half" target="_blank">
-            <!-- Точный фирменный логотип MAX -->
             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.48 2 2 6.48 2 12c0 2.37.82 4.54 2.2 6.26l-.58 2.31c-.13.54.34 1.01.88.88l2.31-.58A9.94 9.94 0 0 0 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm1 14.5c-2.48 0-4.5-2.02-4.5-4.5s2.02-4.5 4.5-4.5 4.5 2.02 4.5 4.5-2.02 4.5-4.5 4.5z"/>
             </svg>MAX
         </a>
     </div>
 
-    <!-- Четвертый ряд: Соцсети -->
+    <!-- Третий ряд: Соцсети и Мессенджеры -->
     <div class="flex-row">
         <a href="https://www.instagram.com/aura_vr_msk?igsh=YXdpcDE2cW5hbnl0&utm_source=qr" class="btn btn-purple w-third" target="_blank">
             <i class="fa-brands fa-instagram"></i>Instagram*
@@ -224,18 +202,18 @@
             <i class="fa-brands fa-vk"></i>ВКонтакте
         </a>
         <a href="https://wa.me/79154725800" class="btn btn-purple w-third" target="_blank">
-            <i class="fa-brands fa-whatsapp"></i>WhatsApp
+            <i class="fa-brands fa-whatsapp"></i>WhatsApp*
         </a>
     </div>
 
-    <!-- Пятый ряд: Позвонить нам -->
+    <!-- Четвертый ряд: Позвонить нам -->
     <a href="tel:+74996424215" class="btn btn-full">
         <i class="fa-solid fa-phone"></i>Позвонить нам
     </a>
 
     <!-- Юридический текст под кнопками -->
     <div class="footer-text">
-        * Организация Meta признана экстремистской, запрещена на территории РФ
+        * Продукты компании Meta, признанной экстремистской организацией и запрещенной на территории РФ
     </div>
 </div>
 
