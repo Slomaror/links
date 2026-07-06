@@ -17,7 +17,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: flex-start; /* Начинаем сверху */
+            justify-content: flex-start;
             padding: 24px 16px;
             margin: 0;
             min-height: 100vh;
@@ -29,36 +29,35 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 16px;
+            gap: 14px;
         }
 
-        /* --- ЛОГОТИП (Верхний блок) --- */
+        /* --- ИСПРАВЛЕННЫЙ ЛОГОТИП --- */
         .logo-block {
             width: 100%;
             display: flex;
             justify-content: center;
-            margin-bottom: 8px; /* Небольшой отступ до кнопок */
+            margin-bottom: 10px;
         }
         .logo-wrap {
             width: 120px;
             height: 120px;
             border-radius: 50%;
-            border: 4px solid #ffffff; /* Белое кольцо как на шаблоне */
-            overflow: hidden; /* Чтобы картинка не вылезала */
-            box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
+            border: 2px solid #8b5cf6; /* Фиолетовая неоновая рамка вместо грубой белой */
+            overflow: hidden;
+            box-shadow: 0 0 15px rgba(139, 92, 246, 0.4);
             display: flex;
             align-items: center;
             justify-content: center;
-            background: rgba(255, 255, 255, 0.05); /* Легкий фон под лого */
+            background: #ffffff; /* Белый фон внутри, чтобы квадратная картинка сливалась с ним */
         }
         .logo-wrap img {
-            width: 90%;
-            height: 90%;
-            object-fit: contain; /* Картинка сохраняет пропорции */
-            filter: drop-shadow(0 0 5px rgba(139, 92, 246, 0.5)); /* Фиолетовое свечение */
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Заполняет весь круг без черных зазоров по бокам */
         }
 
-        /* Гибкие ряды для кнопок */
+        /* Гибкие ряды */
         .flex-row {
             display: flex;
             gap: 14px;
@@ -77,22 +76,20 @@
             font-size: 15px;
             font-weight: 600;
             letter-spacing: 0.3px;
-            border-radius: 4px; /* Чуть скругленные, не идеально острые */
+            border-radius: 4px;
             border-width: 2px;
             border-style: solid;
             transition: all 0.2s ease-in-out;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
             min-width: 0; 
             word-break: break-word;
-            opacity: 1;
         }
 
-        /* Универсальные стили для всех типов иконок */
         .btn i, .btn svg {
-            width: 22px; /* Чуть крупнее */
-            height: 22px;
-            margin-right: 10px;
-            font-size: 18px;
+            width: 20px;
+            height: 20px;
+            margin-right: 8px;
+            font-size: 16px;
             flex-shrink: 0;
             display: inline-flex;
             align-items: center;
@@ -100,205 +97,164 @@
             transition: transform 0.2s ease;
         }
         
-        /* Для правильного цвета встроенной иконки MAX */
         .btn svg {
             fill: #ffffff;
         }
         
         @media (hover: hover) {
             .btn:hover i, .btn:hover svg {
-                transform: scale(1.2);
+                transform: scale(1.15);
             }
         }
 
-        /* --- СТРОГО ОДИНАКОВЫЕ РАЗМЕРЫ НА КАЖДОЙ СТРОКЕ --- */
-        .w-half { 
-            flex: 1 1 50%; 
-        }
+        .w-half { flex: 1 1 50%; }
+        .w-third { flex: 1 1 33.333%; }
 
-        .w-third { 
-            flex: 1 1 33.333%; 
-        }
-
-        /* --- КНОПКИ 'НАПИСАТЬ НАМ' (Светло-фиолетовый фон) --- */
-        .btn-light-purple {
-            background: #cdb4db; /* Пастельно-фиолетовый как на шаблоне */
-            color: #3b2b52; /* Темный текст для контраста */
-            border-color: transparent;
-        }
-        .btn-light-purple i, .btn-light-purple svg {
-            color: #3b2b52;
-        }
-        .btn-light-purple svg {
-            fill: #3b2b52;
+        /* --- ИСПРАВЛЕННЫЕ КНОПКИ 'НАПИСАТЬ НАМ' (В общем стиле, но с акцентом) --- */
+        .btn-write-us {
+            background: rgba(139, 92, 246, 0.15);
+            border-color: #a78bfa; /* Более яркая обводка */
+            box-shadow: 0 0 10px rgba(139, 92, 246, 0.2); /* Легкое постоянное свечение */
         }
         @media (hover: hover) {
-            .btn-light-purple:hover {
-                background: #ffffff;
+            .btn-write-us:hover {
+                background: #a78bfa;
                 color: #0d0617;
-                border-color: #cdb4db;
-                box-shadow: 0 6px 20px rgba(205, 180, 219, 0.5);
+                border-color: #ffffff;
+                box-shadow: 0 6px 20px rgba(167, 139, 250, 0.6);
                 transform: translateY(-2px);
             }
-            .btn-light-purple:hover i, .btn-light-purple:hover svg {
-                color: #0d0617;
-            }
-            .btn-light-purple:hover svg {
+            .btn-write-us:hover svg {
                 fill: #0d0617;
             }
         }
 
-        /* --- САЙТ И ЗВОНОК: Розово-фиолетовый акцентный градиент (Стиль 'full' из старого кода) --- */
-        .btn-accent {
-            width: 100%;
-            padding: 24px 10px;
-            background: linear-gradient(135deg, rgba(139, 92, 246, 0.4), rgba(236, 72, 153, 0.4));
-            border-color: #f43f5e;
-            color: #ffffff;
-        }
-        @media (hover: hover) {
-            .btn-accent:hover {
-                background: linear-gradient(135deg, #8b5cf6, #ec4899);
-                border-color: #ffffff;
-                color: #ffffff;
-                box-shadow: 0 8px 25px rgba(244, 63, 94, 0.7);
-                transform: translateY(-3px);
-            }
-        }
-        .btn-accent:active {
-            background: linear-gradient(135deg, #8b5cf6, #ec4899);
-            border-color: #ffffff;
-            color: #ffffff;
-        }
-
-        /* --- ОСТАЛЬНЫЕ КНОПКИ: Фиолетовый оттенок (Стиль 'purple' из старого кода) --- */
-        .btn-main-purple {
-            background: rgba(139, 92, 246, 0.2);
+        /* --- БАЗОВЫЕ ФИОЛЕТОВЫЕ КНОПКИ (Карты, Каналы, Соцсети) --- */
+        .btn-purple {
+            background: rgba(139, 92, 246, 0.08);
             border-color: #8b5cf6;
-            color: #ffffff;
         }
         @media (hover: hover) {
-            .btn-main-purple:hover {
+            .btn-purple:hover {
                 background: #8b5cf6;
-                color: #ffffff;
+                color: #0d0617;
                 border-color: #ffffff;
-                box-shadow: 0 6px 20px rgba(139, 92, 246, 0.6);
+                box-shadow: 0 6px 20px rgba(139, 92, 246, 0.5);
                 transform: translateY(-2px);
             }
+            .btn-purple:hover svg {
+                fill: #0d0617;
+            }
         }
-        .btn-main-purple:active {
-            background: #8b5cf6;
-            color: #ffffff;
+
+        /* --- АКЦЕНТНЫЕ КНОПКИ (Сайт и Звонок) --- */
+        .btn-full {
+            width: 100%;
+            padding: 24px 10px;
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.2), rgba(236, 72, 153, 0.2));
+            border-color: #f43f5e;
+        }
+        @media (hover: hover) {
+            .btn-full:hover {
+                background: linear-gradient(135deg, #8b5cf6, #ec4899);
+                border-color: #ffffff;
+                color: #0d0617;
+                box-shadow: 0 8px 25px rgba(244, 63, 94, 0.6);
+                transform: translateY(-3px);
+            }
         }
 
         /* Сноска в подвале */
         .footer-text {
-            font-size: 12px;
+            font-size: 11px;
             font-style: italic;
             text-align: center;
-            margin-top: 16px;
-            color: rgba(255, 255, 255, 0.6);
-            line-height: 1.5;
-            max-width: 90%;
+            margin-top: 12px;
+            color: rgba(255, 255, 255, 0.5);
+            line-height: 1.4;
         }
 
-        /* Умная мобильная адаптация для очень узких экранов */
+        /* Адаптация для мобильных */
         @media (max-width: 430px) {
-            .logo-wrap {
-                width: 100px;
-                height: 100px;
-            }
-            .flex-row, .container {
-                gap: 8px;
-            }
+            .flex-row, .container { gap: 8px; }
             .btn {
                 padding: 16px 4px;
                 font-size: 13px;
                 flex-direction: column; 
                 gap: 4px;
-                border-radius: 2px;
             }
-            .btn i, .btn svg {
-                margin-right: 0;
-                width: 20px;
-                height: 20px;
-                font-size: 16px;
-            }
+            .btn i, .btn svg { margin-right: 0; }
         }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <!-- Логотип в круге -->
+    <!-- Логотип -->
     <div class="logo-block">
         <div class="logo-wrap">
-            <img src="logo.png" alt="Аура Игр Логотип">
+            <img src="logo.png" alt="Аура Игр">
         </div>
     </div>
 
-    <!-- ВЕРХНИЙ РЯД: Написать нам (Светло-фиолетовые) -->
+    <!-- Первый ряд: Написать нам -->
     <div class="flex-row">
-        <!-- Ссылка на Тг: aura_vr_europolis -->
-        <a href="https://t.me/aura_vr_europolis" class="btn btn-light-purple w-half" target="_blank">
+        <a href="https://t.me/aura_vr_europolis" class="btn btn-write-us w-half" target="_blank">
             <i class="fa-brands fa-telegram"></i>Написать нам в Telegram
         </a>
-        <!-- Ссылка на Макс -->
-        <a href="https://max.ru/u/f9LHodD0cOJUOz8DysMAqPYLpLCbvUfWmPPcN-gCu9R4DfExhsLr3YMMQs4" class="btn btn-light-purple w-half" target="_blank">
+        <a href="https://max.ru/u/f9LHodD0cOJUOz8DysMAqPYLpLCbvUfWmPPcN-gCu9R4DfExhsLr3YMMQs4" class="btn btn-write-us w-half" target="_blank">
             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.48 2 2 6.48 2 12c0 2.37.82 4.54 2.2 6.26l-.58 2.31c-.13.54.34 1.01.88.88l2.31-.58A9.94 9.94 0 0 0 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm1 14.5c-2.48 0-4.5-2.02-4.5-4.5s2.02-4.5 4.5-4.5 4.5 2.02 4.5 4.5-2.02 4.5-4.5 4.5z"/>
             </svg>Написать нам в MAX
         </a>
     </div>
 
-    <!-- ВТОРОЙ РЯД: Наш сайт (Акцентный градиент) -->
-    <a href="https://aura-vr.ru/" class="btn btn-accent" target="_blank">
+    <!-- Второй ряд: Наш сайт -->
+    <a href="https://aura-vr.ru/" class="btn btn-full" target="_blank">
         <i class="fa-solid fa-globe"></i>Наш сайт
     </a>
 
-    <!-- ТРЕТИЙ РЯД: Карты (Фиолетовые) -->
+    <!-- Третий ряд: Карты -->
     <div class="flex-row">
-        <a href="https://yandex.ru/maps/org/aura_igr/126847755305/" class="btn btn-main-purple w-half" target="_blank">
+        <a href="https://yandex.ru/maps/org/aura_igr/126847755305/" class="btn btn-purple w-half" target="_blank">
             <i class="fa-solid fa-map-location-dot"></i>ЯндексКарты
         </a>
-        <a href="https://2gis.ru/moscow/firm/70000001110439484" class="btn btn-main-purple w-half" target="_blank">
+        <a href="https://2gis.ru/moscow/firm/70000001110439484" class="btn btn-purple w-half" target="_blank">
             <i class="fa-solid fa-location-pin"></i>2Гис
         </a>
     </div>
 
-    <!-- ЧЕТВЕРТЫЙ РЯД: Каналы (Фиолетовые) -->
+    <!-- Четвертый ряд: Каналы -->
     <div class="flex-row">
-        <!-- Оставляем старую ссылку канала т.к. новой не было -->
-        <a href="https://t.me/aura_vr_msk" class="btn btn-main-purple w-half" target="_blank">
+        <a href="https://t.me/aura_vr_msk" class="btn btn-purple w-half" target="_blank">
             <i class="fa-brands fa-telegram"></i>Telegram-канал
         </a>
-        <!-- Оставляем старую ссылку MAX т.к. новой не было -->
-        <a href="https://max.ru/id772793277929_biz" class="btn btn-main-purple w-half" target="_blank">
+        <a href="https://max.ru/id772793277929_biz" class="btn btn-purple w-half" target="_blank">
             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.48 2 2 6.48 2 12c0 2.37.82 4.54 2.2 6.26l-.58 2.31c-.13.54.34 1.01.88.88l2.31-.58A9.94 9.94 0 0 0 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm1 14.5c-2.48 0-4.5-2.02-4.5-4.5s2.02-4.5 4.5-4.5 4.5 2.02 4.5 4.5-2.02 4.5-4.5 4.5z"/>
             </svg>MAX-канал
         </a>
     </div>
 
-    <!-- ПЯТЫЙ РЯД: Соцсети и Мессенджеры (Фиолетовые) -->
+    <!-- Пятый ряд: Соцсети -->
     <div class="flex-row">
-        <a href="https://www.instagram.com/aura_vr_msk?igsh=YXdpcDE2cW5hbnl0&utm_source=qr" class="btn btn-main-purple w-third" target="_blank">
+        <a href="https://www.instagram.com/aura_vr_msk?igsh=YXdpcDE2cW5hbnl0&utm_source=qr" class="btn btn-purple w-third" target="_blank">
             <i class="fa-brands fa-instagram"></i>Instagram*
         </a>
-        <a href="https://vk.com/aura_vr_msk" class="btn btn-main-purple w-third" target="_blank">
+        <a href="https://vk.com/aura_vr_msk" class="btn btn-purple w-third" target="_blank">
             <i class="fa-brands fa-vk"></i>ВКонтакте
         </a>
-        <a href="https://wa.me/79154725800" class="btn btn-main-purple w-third" target="_blank">
+        <a href="https://wa.me/79154725800" class="btn btn-purple w-third" target="_blank">
             <i class="fa-brands fa-whatsapp"></i>WhatsApp*
         </a>
     </div>
 
-    <!-- ШЕСТОЙ РЯД: Позвонить нам (Акцентный градиент) -->
-    <a href="tel:+74996424215" class="btn btn-accent">
+    <!-- Шестой ряд: Позвонить нам -->
+    <a href="tel:+74996424215" class="btn btn-full">
         <i class="fa-solid fa-phone"></i>Позвонить нам
     </a>
 
-    <!-- Юридический текст под кнопками -->
+    <!-- Юридический текст -->
     <div class="footer-text">
         * Продукты компании Meta, признанной экстремистской организацией и запрещенной на территории РФ
     </div>
