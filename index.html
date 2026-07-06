@@ -12,13 +12,13 @@
         }
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
-            background: #0d0617;
+            background: #0d0617; /* Глубокий фиолетовый фон */
             color: #ffffff;
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
-            padding: 16px;
+            justify-content: flex-start; /* Начинаем сверху */
+            padding: 24px 16px;
             margin: 0;
             min-height: 100vh;
             overflow-x: hidden;
@@ -28,10 +28,37 @@
             max-width: 500px;
             display: flex;
             flex-direction: column;
-            gap: 14px;
+            align-items: center;
+            gap: 16px;
         }
-        
-        /* Гибкие ряды */
+
+        /* --- ЛОГОТИП (Верхний блок) --- */
+        .logo-block {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            margin-bottom: 8px; /* Небольшой отступ до кнопок */
+        }
+        .logo-wrap {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 4px solid #ffffff; /* Белое кольцо как на шаблоне */
+            overflow: hidden; /* Чтобы картинка не вылезала */
+            box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.05); /* Легкий фон под лого */
+        }
+        .logo-wrap img {
+            width: 90%;
+            height: 90%;
+            object-fit: contain; /* Картинка сохраняет пропорции */
+            filter: drop-shadow(0 0 5px rgba(139, 92, 246, 0.5)); /* Фиолетовое свечение */
+        }
+
+        /* Гибкие ряды для кнопок */
         .flex-row {
             display: flex;
             gap: 14px;
@@ -50,21 +77,22 @@
             font-size: 15px;
             font-weight: 600;
             letter-spacing: 0.3px;
-            border-radius: 0px;
+            border-radius: 4px; /* Чуть скругленные, не идеально острые */
             border-width: 2px;
             border-style: solid;
             transition: all 0.2s ease-in-out;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
             min-width: 0; 
             word-break: break-word;
+            opacity: 1;
         }
 
         /* Универсальные стили для всех типов иконок */
         .btn i, .btn svg {
-            width: 20px;
-            height: 20px;
-            margin-right: 8px;
-            font-size: 16px;
+            width: 22px; /* Чуть крупнее */
+            height: 22px;
+            margin-right: 10px;
+            font-size: 18px;
             flex-shrink: 0;
             display: inline-flex;
             align-items: center;
@@ -79,7 +107,7 @@
         
         @media (hover: hover) {
             .btn:hover i, .btn:hover svg {
-                transform: scale(1.15);
+                transform: scale(1.2);
             }
         }
 
@@ -92,59 +120,94 @@
             flex: 1 1 33.333%; 
         }
 
-        /* --- КАРТЫ И МЕССЕНДЖЕРЫ: Фиолетовый оттенок --- */
-        .btn-purple {
-            background: rgba(139, 92, 246, 0.1);
-            border-color: #8b5cf6;
+        /* --- КНОПКИ 'НАПИСАТЬ НАМ' (Светло-фиолетовый фон) --- */
+        .btn-light-purple {
+            background: #cdb4db; /* Пастельно-фиолетовый как на шаблоне */
+            color: #3b2b52; /* Темный текст для контраста */
+            border-color: transparent;
+        }
+        .btn-light-purple i, .btn-light-purple svg {
+            color: #3b2b52;
+        }
+        .btn-light-purple svg {
+            fill: #3b2b52;
         }
         @media (hover: hover) {
-            .btn-purple:hover {
-                background: #8b5cf6;
+            .btn-light-purple:hover {
+                background: #ffffff;
                 color: #0d0617;
-                border-color: #ffffff;
-                box-shadow: 0 6px 20px rgba(139, 92, 246, 0.5);
+                border-color: #cdb4db;
+                box-shadow: 0 6px 20px rgba(205, 180, 219, 0.5);
                 transform: translateY(-2px);
             }
-        }
-        .btn-purple:active {
-            background: #8b5cf6;
-            color: #0d0617;
+            .btn-light-purple:hover i, .btn-light-purple:hover svg {
+                color: #0d0617;
+            }
+            .btn-light-purple:hover svg {
+                fill: #0d0617;
+            }
         }
 
-        /* --- САЙТ И ЗВОНОК: Розово-фиолетовый акцентный градиент --- */
-        .btn-full {
+        /* --- САЙТ И ЗВОНОК: Розово-фиолетовый акцентный градиент (Стиль 'full' из старого кода) --- */
+        .btn-accent {
             width: 100%;
             padding: 24px 10px;
-            background: linear-gradient(135deg, rgba(139, 92, 246, 0.2), rgba(236, 72, 153, 0.2));
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.4), rgba(236, 72, 153, 0.4));
             border-color: #f43f5e;
+            color: #ffffff;
         }
         @media (hover: hover) {
-            .btn-full:hover {
+            .btn-accent:hover {
                 background: linear-gradient(135deg, #8b5cf6, #ec4899);
                 border-color: #ffffff;
-                color: #0d0617;
-                box-shadow: 0 8px 25px rgba(244, 63, 94, 0.6);
+                color: #ffffff;
+                box-shadow: 0 8px 25px rgba(244, 63, 94, 0.7);
                 transform: translateY(-3px);
             }
         }
-        .btn-full:active {
+        .btn-accent:active {
             background: linear-gradient(135deg, #8b5cf6, #ec4899);
             border-color: #ffffff;
-            color: #0d0617;
+            color: #ffffff;
+        }
+
+        /* --- ОСТАЛЬНЫЕ КНОПКИ: Фиолетовый оттенок (Стиль 'purple' из старого кода) --- */
+        .btn-main-purple {
+            background: rgba(139, 92, 246, 0.2);
+            border-color: #8b5cf6;
+            color: #ffffff;
+        }
+        @media (hover: hover) {
+            .btn-main-purple:hover {
+                background: #8b5cf6;
+                color: #ffffff;
+                border-color: #ffffff;
+                box-shadow: 0 6px 20px rgba(139, 92, 246, 0.6);
+                transform: translateY(-2px);
+            }
+        }
+        .btn-main-purple:active {
+            background: #8b5cf6;
+            color: #ffffff;
         }
 
         /* Сноска в подвале */
         .footer-text {
-            font-size: 11px;
+            font-size: 12px;
             font-style: italic;
             text-align: center;
-            margin-top: 12px;
-            color: rgba(255, 255, 255, 0.5);
-            line-height: 1.4;
+            margin-top: 16px;
+            color: rgba(255, 255, 255, 0.6);
+            line-height: 1.5;
+            max-width: 90%;
         }
 
-        /* Умная мобильная адаптация для узких экранов */
+        /* Умная мобильная адаптация для очень узких экранов */
         @media (max-width: 430px) {
+            .logo-wrap {
+                width: 100px;
+                height: 100px;
+            }
             .flex-row, .container {
                 gap: 8px;
             }
@@ -153,12 +216,13 @@
                 font-size: 13px;
                 flex-direction: column; 
                 gap: 4px;
+                border-radius: 2px;
             }
             .btn i, .btn svg {
                 margin-right: 0;
-                width: 18px;
-                height: 18px;
-                font-size: 14px;
+                width: 20px;
+                height: 20px;
+                font-size: 16px;
             }
         }
     </style>
@@ -166,48 +230,71 @@
 <body>
 
 <div class="container">
-    <!-- Верхний ряд: Наш сайт (Симметрично кнопке звонка) -->
-    <a href="https://aura-vr.ru/" class="btn btn-full" target="_blank">
+    <!-- Логотип в круге -->
+    <div class="logo-block">
+        <div class="logo-wrap">
+            <img src="logo.png" alt="Аура Игр Логотип">
+        </div>
+    </div>
+
+    <!-- ВЕРХНИЙ РЯД: Написать нам (Светло-фиолетовые) -->
+    <div class="flex-row">
+        <!-- Ссылка на Тг: aura_vr_europolis -->
+        <a href="https://t.me/aura_vr_europolis" class="btn btn-light-purple w-half" target="_blank">
+            <i class="fa-brands fa-telegram"></i>Написать нам в Telegram
+        </a>
+        <!-- Ссылка на Макс -->
+        <a href="https://max.ru/u/f9LHodD0cOJUOz8DysMAqPYLpLCbvUfWmPPcN-gCu9R4DfExhsLr3YMMQs4" class="btn btn-light-purple w-half" target="_blank">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.48 2 2 6.48 2 12c0 2.37.82 4.54 2.2 6.26l-.58 2.31c-.13.54.34 1.01.88.88l2.31-.58A9.94 9.94 0 0 0 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm1 14.5c-2.48 0-4.5-2.02-4.5-4.5s2.02-4.5 4.5-4.5 4.5 2.02 4.5 4.5-2.02 4.5-4.5 4.5z"/>
+            </svg>Написать нам в MAX
+        </a>
+    </div>
+
+    <!-- ВТОРОЙ РЯД: Наш сайт (Акцентный градиент) -->
+    <a href="https://aura-vr.ru/" class="btn btn-accent" target="_blank">
         <i class="fa-solid fa-globe"></i>Наш сайт
     </a>
 
-    <!-- Первый ряд: Карты (Перекрашены в фиолетовый) -->
+    <!-- ТРЕТИЙ РЯД: Карты (Фиолетовые) -->
     <div class="flex-row">
-        <a href="https://yandex.ru/maps/org/aura_igr/126847755305/" class="btn btn-purple w-half" target="_blank">
+        <a href="https://yandex.ru/maps/org/aura_igr/126847755305/" class="btn btn-main-purple w-half" target="_blank">
             <i class="fa-solid fa-map-location-dot"></i>ЯндексКарты
         </a>
-        <a href="https://2gis.ru/moscow/firm/70000001110439484" class="btn btn-purple w-half" target="_blank">
+        <a href="https://2gis.ru/moscow/firm/70000001110439484" class="btn btn-main-purple w-half" target="_blank">
             <i class="fa-solid fa-location-pin"></i>2Гис
         </a>
     </div>
 
-    <!-- Второй ряд: Telegram и MAX -->
+    <!-- ЧЕТВЕРТЫЙ РЯД: Каналы (Фиолетовые) -->
     <div class="flex-row">
-        <a href="https://t.me/aura_vr_msk" class="btn btn-purple w-half" target="_blank">
-            <i class="fa-brands fa-telegram"></i>Telegram
+        <!-- Оставляем старую ссылку канала т.к. новой не было -->
+        <a href="https://t.me/aura_vr_msk" class="btn btn-main-purple w-half" target="_blank">
+            <i class="fa-brands fa-telegram"></i>Telegram-канал
         </a>
-        <a href="https://max.ru/id772793277929_biz" class="btn btn-purple w-half" target="_blank">
+        <!-- Оставляем старую ссылку MAX т.к. новой не было -->
+        <a href="https://max.ru/id772793277929_biz" class="btn btn-main-purple w-half" target="_blank">
             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.48 2 2 6.48 2 12c0 2.37.82 4.54 2.2 6.26l-.58 2.31c-.13.54.34 1.01.88.88l2.31-.58A9.94 9.94 0 0 0 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm1 14.5c-2.48 0-4.5-2.02-4.5-4.5s2.02-4.5 4.5-4.5 4.5 2.02 4.5 4.5-2.02 4.5-4.5 4.5z"/>
-            </svg>MAX
+            </svg>MAX-канал
         </a>
     </div>
 
-    <!-- Третий ряд: Соцсети и Мессенджеры -->
+    <!-- ПЯТЫЙ РЯД: Соцсети и Мессенджеры (Фиолетовые) -->
     <div class="flex-row">
-        <a href="https://www.instagram.com/aura_vr_msk?igsh=YXdpcDE2cW5hbnl0&utm_source=qr" class="btn btn-purple w-third" target="_blank">
+        <a href="https://www.instagram.com/aura_vr_msk?igsh=YXdpcDE2cW5hbnl0&utm_source=qr" class="btn btn-main-purple w-third" target="_blank">
             <i class="fa-brands fa-instagram"></i>Instagram*
         </a>
-        <a href="https://vk.com/aura_vr_msk" class="btn btn-purple w-third" target="_blank">
+        <a href="https://vk.com/aura_vr_msk" class="btn btn-main-purple w-third" target="_blank">
             <i class="fa-brands fa-vk"></i>ВКонтакте
         </a>
-        <a href="https://wa.me/79154725800" class="btn btn-purple w-third" target="_blank">
+        <a href="https://wa.me/79154725800" class="btn btn-main-purple w-third" target="_blank">
             <i class="fa-brands fa-whatsapp"></i>WhatsApp*
         </a>
     </div>
 
-    <!-- Четвертый ряд: Позвонить нам -->
-    <a href="tel:+74996424215" class="btn btn-full">
+    <!-- ШЕСТОЙ РЯД: Позвонить нам (Акцентный градиент) -->
+    <a href="tel:+74996424215" class="btn btn-accent">
         <i class="fa-solid fa-phone"></i>Позвонить нам
     </a>
 
